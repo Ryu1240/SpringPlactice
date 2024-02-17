@@ -27,4 +27,12 @@ public class MeetingRoom implements Serializable {
     public String getRoomName(){
         return roomName;
     }
+
+    public void setRoomId(Integer roomId){
+        this.roomId=roomId;
+    }
+
+    public void setRoomName(String roomName){
+        this.roomName =roomName;
+    }
 }

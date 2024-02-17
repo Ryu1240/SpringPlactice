@@ -20,22 +20,34 @@ public class User implements Serializable {
     private RoleName roleName;
 
     //Getter
-    public String GetUserId(){
+    public String getUserId(){
         return userId;
     }
-    public String GetPassword(){
+    public String getPassword(){
         return password;
     }
 
-    public String GetFirstName(){
+    public String getFirstName(){
         return firstName;
     }
-    public String GetLastName(){
+    public String getLastName(){
         return lastName;
     }
     
-    public RoleName GetRoleName(){
+    public RoleName getRoleName(){
         return roleName;
+    }
+    public void setUserId(String userId) {
+       this.userId = userId;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    public void setRoleName(RoleName roleName) {
+        this.roleName = roleName;
     }
 
 

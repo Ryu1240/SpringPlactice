@@ -5,6 +5,8 @@ import java.time.LocalTime;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 public class Reservation implements Serializable{
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +25,20 @@ public class Reservation implements Serializable{
     @JoinColumn(name = "user_id")
     private User user;
 
+    public boolean overlap(Reservation target){
+        if(!Objects.equals(reservableRoom.getReservableRoomId(), target.reservableRoom.getReservableRoomId())){
+            return false;
+        }
+        if (startTime.equals(target.startTime) && endTime.equals(target.endTime)){
+            return true;
+        }
+        return target.endTime.isAfter(startTime) && endTime.isAfter(target.startTime);
+    }
+
     public Integer getReservationId(){
         return reservationId;
     }
-    public LocalTime getStarTime(){
+    public LocalTime getStartTime(){
         return startTime;
     }
 
@@ -40,5 +52,9 @@ public class Reservation implements Serializable{
 
     public User getUser(){
         return user;//本当は複製しなきゃ
+    }
+
+    public void setReservationId(Integer reservationId){
+        this.reservationId =reservationId;
     }
 }

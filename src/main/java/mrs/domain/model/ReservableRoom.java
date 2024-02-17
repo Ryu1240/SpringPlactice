@@ -22,11 +22,19 @@ public class ReservableRoom implements Serializable {
         
     }
 
+    public ReservableRoom getReservableRoom(){
+        return new ReservableRoom(this.reservableRoomId);
+    }
+
     public MeetingRoom getMeetingRoom(){
         return new MeetingRoom(this.meetingRoom);
     }
 
     public ReservableRoomId getReservableRoomId(){
         return new ReservableRoomId(this.reservableRoomId);
+    }
+
+    public void setReservableRoomId(ReservableRoomId reservableRoomId) {
+        this.reservableRoomId = reservableRoomId;
     }
 }
