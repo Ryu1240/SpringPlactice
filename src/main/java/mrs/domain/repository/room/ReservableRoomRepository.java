@@ -1,5 +1,9 @@
 package mrs.domain.repository.room;
 
+import jakarta.persistence.LockModeType;
+
+import org.springframework.data.jpa.repository.Lock;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,6 +14,8 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ReservableRoomRepository extends JpaRepository<ReservableRoom,ReservableRoomId>{
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    ReservableRoom findOneForUpdateByReservableRoomId(ReservableRoomId reservableRoomId);
     List<ReservableRoom>findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(LocalDate reservedDate);
 
     default ReservableRoom findOneByRoomId(ReservableRoomId roomId) {
