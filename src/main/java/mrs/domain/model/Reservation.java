@@ -57,4 +57,20 @@ public class Reservation implements Serializable{
     public void setReservationId(Integer reservationId){
         this.reservationId =reservationId;
     }
+
+    public void setStartTime(LocalTime startTime){
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(LocalTime endTime){
+        this.endTime = endTime;
+    }
+
+    public void setReservableRoom(ReservableRoom reservableRoom){
+        this.reservableRoom =reservableRoom;
+    }
+
+    public void setUser(User user){
+        this.user =user;
+    }
 }

@@ -10,8 +10,10 @@
             <a th:href="@{'/rooms/' + ${date}}">会議室一覧へ</a>
         </div>
 
+        <p style="color: red" th:if="${error != null}" th:text="${error}"></p>
+
         <form th:object="${reservationForm}"
-              th:action="@{'reservations/' + ${date} + '/' + ${roomId}}" method="post">
+              th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}" method="post">
             会議室:<span th:text="${room.roomName}">豊洲</span>
             <br/>
             予約者名:<span th:text="${user.lastName + ' ' + user.firstName}">山田 太郎</span>
@@ -22,7 +24,12 @@
             <select th:field="*{startTime}">
             <option th:each="time : ${timeList}" th:text="${time}" th:value="${time}">09:00</option>
             </select>
-            <span th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}" style="color:red">error!</span>
+            <span th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}" style="color:red">error!</span>
+            -
+            <select th:field="*{endTime}">
+                <option th:each="time : ${timeList}" th:text="${time}" th:value="${time}">09:00</option>
+                </select>
+                <span th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}" style="color:red">error!</span>
             <br/>
             <button>予約</button>
         </form>
@@ -35,9 +42,9 @@
             </tr>
             <tr th:each="reservation : ${reservations}">
                 <td>
-                    <span th:text="$reservation.startTime"/>
+                    <span th:text="${reservation.startTime}"/>
                     -
-                    <span th:text="$reservation.endTime"/>
+                    <span th:text="${reservation.endTime}"/>
                 </td>
                 <td>
                     <span th:text="${reservation.user.lastName}"/>

@@ -19,11 +19,11 @@ public class ReservableRoomId implements Serializable{
     public ReservableRoomId(){
 
     }
-    // コピーコンストラクタ
-    public ReservableRoomId(ReservableRoomId obj){
-        this.roomId = obj.roomId;
-        this.reservedDate = obj.reservedDate;
-    }
+    // // コピーコンストラクタ
+    // public ReservableRoomId(ReservableRoomId obj){
+    //     this.roomId = obj.roomId;
+    //     this.reservedDate = obj.reservedDate;
+    // }
 
     @Override
     public int hashCode(){
@@ -57,5 +57,12 @@ public class ReservableRoomId implements Serializable{
 
     public LocalDate getReservedDate(){
         return reservedDate;
+    }
+    public void setRoomId(Integer roomId){
+        this.roomId =roomId;
+    }
+
+    public void setReservedDate(LocalDate reservedDate){
+        this.reservedDate =reservedDate;
     }
 }

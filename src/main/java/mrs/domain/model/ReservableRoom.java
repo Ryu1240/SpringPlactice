@@ -18,8 +18,7 @@ public class ReservableRoom implements Serializable {
         this.reservableRoomId = reservableRoomId;
     }
 
-    public ReservableRoom(){
-        
+    public ReservableRoom(){   
     }
 
     public ReservableRoom getReservableRoom(){
@@ -27,14 +26,18 @@ public class ReservableRoom implements Serializable {
     }
 
     public MeetingRoom getMeetingRoom(){
-        return new MeetingRoom(this.meetingRoom);
+        return this.meetingRoom;
     }
 
     public ReservableRoomId getReservableRoomId(){
-        return new ReservableRoomId(this.reservableRoomId);
+        return this.reservableRoomId;
     }
 
     public void setReservableRoomId(ReservableRoomId reservableRoomId) {
         this.reservableRoomId = reservableRoomId;
+    }
+
+    public void setMeetingRoom(MeetingRoom meetingRoom){
+        this.meetingRoom = meetingRoom;
     }
 }

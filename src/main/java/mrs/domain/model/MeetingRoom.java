@@ -15,11 +15,6 @@ public class MeetingRoom implements Serializable {
     public MeetingRoom(){
     }
 
-    public MeetingRoom(MeetingRoom obj){
-        this.roomId = obj.roomId;
-        this.roomName = obj.roomName;
-    }
-
     public Integer getRoomId(){
         return roomId;
     }
