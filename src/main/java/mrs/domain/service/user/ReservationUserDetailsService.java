@@ -3,7 +3,6 @@ package mrs.domain.service.user;
 import mrs.domain.model.User;
 import mrs.domain.repository.user.UserRepository;
 
-import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
