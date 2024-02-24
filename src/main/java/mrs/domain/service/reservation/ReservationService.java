@@ -44,7 +44,7 @@ public class ReservationService {
 
     @SuppressWarnings("null")
     public void cancel(Integer reservationId, User requestUser){
-        Reservation reservation = reservationRepository.findOneByReservationId(reservationId);
+        Reservation reservation = reservationRepository.findOne(reservationId);
         if(RoleName.ADMIN != requestUser.getRoleName() && !Objects.equals(reservation.getUser().getUserId(), requestUser.getUserId())){
             throw new IllegalStateException("要求されたキャンセルは許可できません");
         }

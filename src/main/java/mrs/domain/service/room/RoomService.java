@@ -27,6 +27,6 @@ public class RoomService {
     }
 
     public MeetingRoom findMeetingRoom(Integer roomId){
-        return meetingRoomRepository.findOneByRoomId(roomId);
+        return meetingRoomRepository.findOne(roomId);
     }
 }
